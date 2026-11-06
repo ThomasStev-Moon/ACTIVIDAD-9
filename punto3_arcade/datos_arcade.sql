@@ -1,0 +1,23 @@
+ Datos del Arcade de datos (2026-11-06)
+INSERT INTO jugadores (id, nombre, curso) VALUES (101, 'Invitado', 10);
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1001, 101, 1, 40, 5, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1002, 101, 1, 40, 12, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1003, 101, 1, 0, 4, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1004, 101, 1, 10, 2, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1005, 101, 1, 10, 4, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1006, 101, 1, 130, 46, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1007, 101, 1, 220, 67, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1008, 101, 2, 380, 244, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1009, 101, 2, 580, 57, 'gano', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1010, 101, 3, 50, 518, 'empate', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1011, 101, 3, 0, 4, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1012, 101, 3, 50, 7, 'empate', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1013, 101, 3, 50, 7, 'empate', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1014, 101, 3, 50, 6, 'empate', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1015, 101, 3, 0, 7, 'perdio', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1016, 101, 3, 100, 7, 'gano', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1017, 101, 3, 50, 6, 'empate', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1018, 101, 3, 100, 4, 'gano', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1019, 101, 3, 100, 2, 'gano', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1020, 101, 3, 100, 4, 'gano', 'humano', '2026-11-06');
+INSERT INTO partidas (id, jugador_id, juego_id, puntaje, duracion_s, resultado, piloto, fecha) VALUES (1021, 101, 3, 100, 16, 'gano', 'humano', '2026-11-06');
