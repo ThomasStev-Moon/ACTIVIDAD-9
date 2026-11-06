@@ -66,3 +66,134 @@ En esta actividad se exploran los conceptos fundamentales de la programación y 
 ---
 
 ## 📂 Estructura del repositorio
+
+```text
+Actividad 9/
+├── README.md                    ← este archivo
+├── punto1_laboratorio/          ← Bitácora, SQL y capturas
+│   ├── bitacora.md
+│   ├── laboratorio.sql
+│   └── captura_horno.png, etc.
+├── punto2_colab/                ← Cuaderno y retos superados
+│   └── laboratorio_galletas.ipynb
+├── punto3_arcade/               ← Consultas SQL y bitácora de visión
+│   ├── consultas.sql
+│   ├── datos_arcade.sql
+│   └── bitacora_punto3.md
+├── punto4_workbench/            ← Diagrama ER y DDL/DML
+│   ├── arcade_mysql.sql
+│   └── diagrama_er.png
+└── punto5_propuesta/            ← Propuesta de juego propio
+    ├── propuesta.md
+    ├── tablas.sql
+    └── diagrama_er.png
+
+---
+
+## 📚 Contenido del taller
+
+- [Punto 1 · Laboratorio de Galletas 3D](#punto-1--laboratorio-de-galletas-3d)
+- [Punto 2 · Cuaderno de Colab (Algoritmos y SQL)](#punto-2--cuaderno-de-colab-algoritmos-y-sql)
+- [Punto 3 · Arcade de Datos](#punto-3--arcade-de-datos)
+- [Punto 4 · MySQL Workbench (DDL y DML)](#punto-4--mysql-workbench-ddl-y-dml)
+- [Punto 5 · Propuesta de Juego (Tetris)](#punto-5--propuesta-de-juego-tetris)
+
+---
+
+## Punto 1 · Laboratorio de Galletas 3D
+
+### 1.1 Química y Visión
+
+Se recorrieron las **7 estaciones** de la simulación 3D analizando la química y la visión por computador detrás de cada paso.
+
+| Estación | Concepto de química | Concepto de visión |
+|---|---|---|
+| Ingredientes | Función de grasas, proteínas y gasificantes. | ROI y color promedio RGB. |
+| Mezclar | Desarrollo del gluten. | Desviación estándar del color (homogeneidad). |
+| Formar | Densidad y peso. | Cálculo de peso por área (A = πr²). |
+| Hornear | Reacción de Maillard y caramelización. | Medición del índice de dorado (brillo/color). |
+| Producción | — | Matriz de confusión y efecto del ruido. |
+| Empaque | — | Umbral de confianza, NMS e IoU. |
+| Despacho | — | Máscaras HSV y falsas alarmas por filtros de área. |
+
+### 1.2 Patrón MVC
+
+Al tocar un botón en el laboratorio 3D:
+1.  **Controlador:** Recibe la orden (ej. "Hornear").
+2.  **Modelo:** Actualiza las variables internas (temperatura = 180 °C).
+3.  **Vista:** Redibuja la escena 3D y el panel de lectura.
+
+**Evidencias:** `docs/punto1_laboratorio/`
+
+---
+
+## Punto 2 · Cuaderno de Colab (Algoritmos y SQL)
+
+### 2.1 Retos Superados (A1 a Y2)
+
+Se completaron todos los retos del cuaderno, desde la lógica condicional hasta la visión por computador con YOLO.
+
+### 2.2 Reflexiones
+
+**¿Por qué un alias del SELECT no se puede usar en el WHERE?**
+> Porque SQL ejecuta el `FROM`, luego el `WHERE`, y de último el `SELECT`. Cuando se evalúa el `WHERE`, el alias del `SELECT` aún no existe en memoria.
+
+**¿Qué pasa al mover los umbrales de OpenCV y YOLO?**
+> - **OpenCV (Tono):** Un rango de 10-27 detecta el fondo y confunde al piloto. El rango estrecho (19-27) aísla la pelota.
+> - **YOLO (IoU):** Un IoU de 0.9 no elimina cajas duplicadas (cuenta galletas de más). Un umbral de confianza de 0.9 puede perder galletas reales.
+
+**Evidencias:** `docs/punto2_colab/laboratorio_galletas.ipynb`
+
+---
+
+## Punto 3 · Arcade de Datos
+
+### 3.1 Algoritmos
+
+-   **Culebrita:** Bucle `MIENTRAS` (while) que termina al chocar con la pared o el cuerpo. La culebrita crece al no eliminar la cola cuando come.
+-   **Rompeladrillos:** Bucle `PARA CADA` que revisa los ladrillos. Al inicio revisa 48; al final, solo los pocos que quedan.
+-   **Triqui:** Revisa 8 líneas posibles y usa un `break` si encuentra un ganador.
+
+### 3.2 Cuadro de Visión
+
+| Tono mínimo | Tono máximo | Píxeles detectados | ¿El piloto sigue la pelota? |
+|---|---|---|---|
+| 19 | 27 | (variable) | **Sí** (solo detecta la pelota). |
+| 10 | 27 | (variable) | **No** (el rango es muy amplio y se confunde). |
+| 19 | 27 (brillo 0.9) | (variable) | **No** (exige demasiado brillo). |
+
+### 3.3 Consultas SQL
+
+Se resolvieron consultas con `JOIN`, `WHERE` compuesto y `GROUP BY` para analizar las partidas, todo guardado en `punto3_arcade/consultas.sql`.
+
+**Evidencias:** `docs/punto3_arcade/`
+
+---
+
+## Punto 4 · MySQL Workbench (DDL y DML)
+
+### 4.1 Diagrama Entidad-Relación
+
+Se diseñó el modelo de datos del Arcade en dbdiagram.io, identificando claves primarias (`id`) y foráneas (`jugador_id`, `juego_id`).
+
+```mermaid
+erDiagram
+    MIS_JUGADORES ||--o{ MIS_PARTIDAS : "juega"
+    MIS_JUEGOS ||--o{ MIS_PARTIDAS : "pertenece"
+    
+    MIS_JUGADORES {
+        int id PK
+        string nombre
+        int curso
+    }
+    MIS_JUEGOS {
+        int id PK
+        string nombre
+        string categoria
+    }
+    MIS_PARTIDAS {
+        int id PK
+        int jugador_id FK
+        int juego_id FK
+        int puntaje
+    }
