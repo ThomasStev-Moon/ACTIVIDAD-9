@@ -67,7 +67,7 @@ En esta actividad se exploran los conceptos fundamentales de la programación y 
 
 ## 📂 Estructura del repositorio
 
-```text
+'''text
 Actividad 9/
 ├── README.md                    ← este archivo
 ├── punto1_laboratorio/          ← Bitácora, SQL y capturas
@@ -87,6 +87,7 @@ Actividad 9/
     ├── propuesta.md
     ├── tablas.sql
     └── diagrama_er.png
+'''
 
 ---
 
@@ -176,7 +177,7 @@ Se resolvieron consultas con `JOIN`, `WHERE` compuesto y `GROUP BY` para analiza
 
 Se diseñó el modelo de datos del Arcade en dbdiagram.io, identificando claves primarias (`id`) y foráneas (`jugador_id`, `juego_id`).
 
-```mermaid
+'''mermaid
 erDiagram
     MIS_JUGADORES ||--o{ MIS_PARTIDAS : "juega"
     MIS_JUEGOS ||--o{ MIS_PARTIDAS : "pertenece"
@@ -197,3 +198,45 @@ erDiagram
         int juego_id FK
         int puntaje
     }
+'''
+
+### 4.2 DDL y DML
+
+Se crearon las tablas `mis_jugadores`, `mis_juegos` y `mis_partidas` con restricciones `AUTO_INCREMENT`, `NOT NULL` y `FOREIGN KEY`. Todo en el archivo `arcade_mysql.sql`.
+
+**Evidencias:** `docs/punto4_workbench/`
+
+---
+
+## Punto 5 · Propuesta de Juego (Tetris)
+
+### 5.1 Modelo de Datos
+
+Se propone un modelo de 4 tablas para gestionar partidas de Tetris, permitiendo rastrear los movimientos de las piezas y el rendimiento del jugador.
+
+**Tablas:**
+-   `jugadores`: Almacena los datos del usuario.
+-   `piezas`: Catálogo de las piezas (I, O, T, etc.) con su color y forma.
+-   `partidas`: Registra cada partida con el puntaje y el nivel alcanzado.
+-   `movimientos`: Almacena la posición y rotación de cada pieza en cada partida (para posibles repeticiones).
+
+### 5.2 Requerimientos
+
+-   **Funcionales:** El sistema debe guardar el puntaje automáticamente al terminar la partida y permitir mover/rotar piezas.
+-   **No funcionales:** El sistema debe responder en menos de 50 ms a los controles. **No permitir borrar un jugador que tenga partidas registradas** (integridad referencial).
+
+### 5.3 Inteligencia Artificial / Visión
+
+Se propone un **bot con OpenCV** que capture la pantalla del juego, detecte el color de la pieza actual mediante máscaras HSV y calcule la mejor posición para dejarla caer (similar al piloto automático del Rompeladrillos).
+
+**Evidencias:** `docs/punto5_propuesta/`
+
+---
+
+## 🏁 Conclusión
+
+Este taller integró la lógica de programación con la persistencia de datos y la visión artificial. Aprendimos que un buen diseño de base de datos (con sus claves y restricciones) es tan importante como el código que la consulta, y que la visión por computador (OpenCV/YOLO) es una herramienta poderosa para automatizar procesos de control de calidad y seguridad en una planta de producción real.
+
+---
+
+**Repositorio organizado según las indicaciones del SENA.**
